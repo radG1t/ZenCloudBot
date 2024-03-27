@@ -660,6 +660,13 @@ if($data=="myInfo"){
     $stmt->execute();
     $totalBuys = $stmt->get_result()->num_rows;
     $stmt->close();
+
+    $stmt = $connection->prepare("SELECT COUNT(amount) as count, SUM(amount) as total FROM `orders_list` WHERE `userid` = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $info = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+    $totalBoughtPrice = number_format($info['total']) . " تومان";
     
     $myWallet = number_format($userInfo['wallet']) . " تومان";
     
@@ -679,6 +686,8 @@ if($data=="myInfo"){
 🍄 یوزرنیم: <code> @$username </code>
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
+
+💰 جمع کل خرید شما: <code> $totalBoughtPrice </code>
 
 ☑️ کل سرویس ها : <code> $totalBuys </code> عدد
 ⁮⁮ ⁮⁮ ⁮⁮ ⁮⁮
