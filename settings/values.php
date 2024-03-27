@@ -60,7 +60,8 @@ $mainValues = [
 🚦سرور: SERVERNAME
 ✏️ نام سرویس: REMARK
 🔋حجم سرویس: VOLUME گیگ
-⏰ مدت سرویس: DAYS روز",
+⏰ مدت سرویس: DAYS روز
+LINK",
     'buy_new_much_account_request' => "❗️|💳 خرید جدید ( TYPE )
 
 ▫️آیدی کاربر: USER-ID
