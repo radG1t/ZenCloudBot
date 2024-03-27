@@ -659,15 +659,15 @@ if($data=="myInfo"){
     $stmt->bind_param("i", $from_id);
     $stmt->execute();
     $totalBuys = $stmt->get_result()->num_rows;
+    $info = $stmt->get_result()->fetch_assoc();
+    $totalBoughtPrice = number_format($info['total']) . " تومان";
     $stmt->close();
     
-    $totalBoughtPrice = number_format($userInfo['total']) . " تومان";
     $myWallet = number_format($userInfo['wallet']) . " تومان";
     
     $keys = json_encode(['inline_keyboard'=>[
         [
-            ['text'=>"شارژ کیف پول 💰",'callback_data'=>"increaseMyWallet"],
-            ['text'=>"انتقال موجودی",'callback_data'=>"transferMyWallet"]
+            ['text'=>"شارژ کیف پول 💰",'callback_data'=>"increaseMyWallet"]
         ],
         [
             ['text'=>$buttonValues['back_button'],'callback_data'=>"mainMenu"]
