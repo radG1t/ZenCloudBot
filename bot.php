@@ -659,15 +659,14 @@ if($data=="myInfo"){
     $stmt->bind_param("i", $from_id);
     $stmt->execute();
     $totalBuys = $stmt->get_result()->num_rows;
-    $info = $stmt->get_result()->fetch_assoc();
     $stmt->close();
     
-    $totalBoughtPrice = number_format($info['total']) . " تومان";
     $myWallet = number_format($userInfo['wallet']) . " تومان";
     
     $keys = json_encode(['inline_keyboard'=>[
         [
-            ['text'=>"شارژ کیف پول 💰",'callback_data'=>"increaseMyWallet"]
+            ['text'=>"شارژ کیف پول 💰",'callback_data'=>"increaseMyWallet"],
+            ['text'=>"انتقال موجودی",'callback_data'=>"transferMyWallet"]
         ],
         [
             ['text'=>$buttonValues['back_button'],'callback_data'=>"mainMenu"]
@@ -680,8 +679,6 @@ if($data=="myInfo"){
 🍄 یوزرنیم: <code> @$username </code>
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
-
-💰 جمع کل خرید شما: <code> $totalBoughtPrice </code>
 
 ☑️ کل سرویس ها : <code> $totalBuys </code> عدد
 ⁮⁮ ⁮⁮ ⁮⁮ ⁮⁮
