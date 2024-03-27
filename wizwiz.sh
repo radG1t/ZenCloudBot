@@ -99,7 +99,6 @@ sudo systemctl restart apache2.service
 
 wait
 
-
 git clone https://github.com/Aryan-Ebadi/masterbot.git /var/www/html/wizwizxui-timebot
 sudo chown -R www-data:www-data /var/www/html/wizwizxui-timebot/
 sudo chmod -R 755 /var/www/html/wizwizxui-timebot/
