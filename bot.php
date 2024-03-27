@@ -661,6 +661,7 @@ if($data=="myInfo"){
     $totalBuys = $stmt->get_result()->num_rows;
     $stmt->close();
     
+    $totalBoughtPrice = number_format($userInfo['total']) . " تومان";
     $myWallet = number_format($userInfo['wallet']) . " تومان";
     
     $keys = json_encode(['inline_keyboard'=>[
@@ -679,6 +680,8 @@ if($data=="myInfo"){
 🍄 یوزرنیم: <code> @$username </code>
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
+
+💰 جمع کل خرید شما: <code> $totalBoughtPrice </code>
 
 ☑️ کل سرویس ها : <code> $totalBuys </code> عدد
 ⁮⁮ ⁮⁮ ⁮⁮ ⁮⁮
