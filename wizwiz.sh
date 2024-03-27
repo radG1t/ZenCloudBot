@@ -3,6 +3,7 @@
 # Written By: wizwiz
 
 echo -e "hello masters"
+
 if [ "$(id -u)" -ne 0 ]; then
     echo -e "\033[33mPlease run as root\033[0m"
     exit
