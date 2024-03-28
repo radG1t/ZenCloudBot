@@ -9488,10 +9488,10 @@ if ($data == 'customSharjWallet') {
     // $keyboard[] = ['text' => $buttonValues['back_to_main'], 'callback_data' => "mainMenu"];
     // $keyboard = array_chunk($keyboard, 1);
 
-    $keyboard[] = ['text' => 'تماس با پشتیبان خود', 'url' => "https://t.me/vpn_masters_admin"];
+    $keyboard[] = ['text' => '🎧 تماس با پشتیبان خود 🎧', 'url' => "https://t.me/vpn_masters_admin"];
     $keyboard = array_chunk($keyboard, 1);
     // $glassButtonCustom = ['text' => 'تماس با پشتیبان خود', 'url' => "tg://user?id=vpn_masters_admin"];
     editText($message_id, "
-➕ برای شارژ حساب کاربری ربات خود به پشتیبانی ربات پیام بدهید در سریع ترین زمان به درخواست شما پاسخ داده خواهد شد.
+➕ برای شارژ حساب کاربری ربات خود به پشتیبانی 24 ساعته ربات پیام بدهید. 👇
 ", json_encode(['inline_keyboard' => $keyboard]));
 }
