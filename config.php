@@ -286,8 +286,8 @@ function getMainKeys()
         (($botState['searchState'] == "on" || $from_id == $admin || $userInfo['isAdmin'] == true) ?
             [['text' => $buttonValues['search_config'], 'callback_data' => "showUUIDLeft"]]
             : []),
-            
-            [['text' => '💳 موجودی: ' . $my_wallet_custom_number . ' ➕ افزایش موجودی', 'callback_data' => "reciveApplications"]],
+            //reciveApplications
+            [['text' => '💳 موجودی: ' . $my_wallet_custom_number . ' ➕ افزایش موجودی', 'callback_data' => "customSharjWallet"]],
             [['text' => $buttonValues['buy_subscriptions'], 'callback_data' => "buySubscription"]],
     ]);
     $stmt = $connection->prepare("SELECT * FROM `setting` WHERE `type` LIKE '%MAIN_BUTTONS%'");
