@@ -264,7 +264,8 @@ function getMainKeys(){
         (($botState['sharedExistence'] != "on" && $botState['individualExistence'] == "on")?
             [['text'=>$buttonValues['individual_existence'],'callback_data'=>"availableServers2"]]:[]
         ),
-        // [['text'=>$buttonValues['application_links'],'callback_data'=>"reciveApplications"],['text'=>$buttonValues['my_tickets'],'callback_data'=>"supportSection"]],
+        [['text'=>'موچودی: 340ت - افزایش موجودی','callback_data'=>"reciveApplications"]],
+
         (($botState['searchState']=="on" || $from_id == $admin || $userInfo['isAdmin'] == true)?
             [['text'=>$buttonValues['search_config'],'callback_data'=>"showUUIDLeft"]]
             :[]),
