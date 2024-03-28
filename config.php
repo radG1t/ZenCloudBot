@@ -288,7 +288,7 @@ function getMainKeys()
             [['text' => $buttonValues['search_config'], 'callback_data' => "showUUIDLeft"]]
             : []),
             
-        [['text' => 'موجودی: ' . $my_wallet_custom_number . ' - افزایش موجودی', 'callback_data' => "reciveApplications"]],
+        [['text' => '💳 موجودی: ' . $my_wallet_custom_number . ' - ➕ افزایش موجودی', 'callback_data' => "reciveApplications"]],
     ]);
     $stmt = $connection->prepare("SELECT * FROM `setting` WHERE `type` LIKE '%MAIN_BUTTONS%'");
     $stmt->execute();
