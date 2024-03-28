@@ -685,6 +685,9 @@ if ($data == "myInfo") {
 🍄 یوزرنیم: <code> @$username </code>
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
+$userId
+💰 جمع کل خرید شما:  $totalBoughtPrice
+
 
 💰 جمع کل خرید شما:  $totalBoughtPrice
 
