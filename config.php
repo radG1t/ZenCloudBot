@@ -284,11 +284,11 @@ function getMainKeys()
         (($botState['sharedExistence'] != "on" && $botState['individualExistence'] == "on") ?
             [['text' => $buttonValues['individual_existence'], 'callback_data' => "availableServers2"]] : []
         ),
-        [['text' => 'موچودی:' . $my_wallet_custom_number . ' - افزایش موجودی', 'callback_data' => "reciveApplications"]],
-
         (($botState['searchState'] == "on" || $from_id == $admin || $userInfo['isAdmin'] == true) ?
             [['text' => $buttonValues['search_config'], 'callback_data' => "showUUIDLeft"]]
             : []),
+            
+        [['text' => 'موجودی: ' . $my_wallet_custom_number . ' - افزایش موجودی', 'callback_data' => "reciveApplications"]],
     ]);
     $stmt = $connection->prepare("SELECT * FROM `setting` WHERE `type` LIKE '%MAIN_BUTTONS%'");
     $stmt->execute();
