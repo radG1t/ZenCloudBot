@@ -3523,18 +3523,18 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             foreach ($vraylink as $vray_link) {
                 $acc_text = "
-                    😍 سفارش جدید شما
-                    📡 پروتکل: $protocol
-                    🔮 نام سرویس: $remark
-                    🔋حجم سرویس: $volume گیگ
-                    ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
-                    " . ($botState['configLinkState'] != "off" ? "
-                    💝 config : <code>$vray_link</code>" : "");
-                                    if ($botState['subLinkState'] == "on") $acc_text .= "
+💎 سفارش جدید شما
+📡 پروتکل: $protocol
+🔮 نام سرویس: $remark
+🔋حجم سرویس: $volume گیگ
+⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
+" . ($botState['configLinkState'] != "off" ? "
+💝 config : <code>$vray_link</code>" : "");
+if ($botState['subLinkState'] == "on") $acc_text .= "
 
-                    🔋 Volume web: <code> $botUrl" . "search.php?id=" . $uniqid . "</code>
+🔋 Volume web: <code> $botUrl" . "search.php?id=" . $uniqid . "</code>
 
-                    \n🌐 subscription : <code>$subLink</code>";
+\n🌐 subscription : <code>$subLink</code>";
 
                 $file = RandomString() . ".png";
                 $ecc = 'L';
