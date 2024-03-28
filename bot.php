@@ -685,9 +685,6 @@ if ($data == "myInfo") {
 🍄 یوزرنیم: <code> @$username </code>
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
-$userId
-💰 جمع کل خرید شما:  $totalBoughtPrice
-
 
 💰 جمع کل خرید شما:  $totalBoughtPrice
 
@@ -9474,4 +9471,27 @@ if ($text == $buttonValues['cancel']) {
 
     sendMessage($mainValues['waiting_message'], $removeKeyboard);
     sendMessage($mainValues['reached_main_menu'], getMainKeys());
+}
+
+if ($data == 'customSharjWallet') {
+    // $stmt = $connection->prepare("SELECT * FROM `needed_sofwares` WHERE `status`=1");
+    // $stmt->execute();
+    // $respd = $stmt->get_result();
+    // $stmt->close();
+
+    // $keyboard = [];
+    // while ($file =  $respd->fetch_assoc()) {
+    //     $link = $file['link'];
+    //     $title = $file['title'];
+    //     $keyboard[] = ['text' => "$title", 'url' => $link];
+    // }
+    // $keyboard[] = ['text' => $buttonValues['back_to_main'], 'callback_data' => "mainMenu"];
+    // $keyboard = array_chunk($keyboard, 1);
+
+    $keyboard[] = ['text' => 'تماس با پشتیبان خود', 'url' => "tg://user?id=vpn_masters_admin"];
+    $keyboard = array_chunk($keyboard, 1);
+    // $glassButtonCustom = ['text' => 'تماس با پشتیبان خود', 'url' => "tg://user?id=vpn_masters_admin"];
+    editText($message_id, "
+➕ برای شارژ حساب کاربری ربات خود به پشتیبانی ربات پیام بدهید در سریع ترین زمان به درخواست شما پاسخ داده خواهد شد.
+", json_encode(['inline_keyboard' => $keyboard]));
 }
