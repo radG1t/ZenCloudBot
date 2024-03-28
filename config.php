@@ -263,7 +263,7 @@ function getMainKeys()
             ] :
                 []),
             (($botState['sellState'] == "on" || $from_id == $admin || $userInfo['isAdmin'] == true) ?
-                [['text' => $buttonValues['my_subscriptions'], 'callback_data' => 'mySubscriptions'], ['text' => $buttonValues['buy_subscriptions'], 'callback_data' => "buySubscription"]]
+                [['text' => $buttonValues['my_info'], 'callback_data' => "myInfo"], ['text' => $buttonValues['my_subscriptions'], 'callback_data' => 'mySubscriptions']]
                 :
                 [['text' => $buttonValues['my_subscriptions'], 'callback_data' => 'mySubscriptions']]
             )
@@ -275,10 +275,9 @@ function getMainKeys()
             []
         ),
         // [['text'=>$buttonValues['sharj'],'callback_data'=>"increaseMyWallet"]],
-        [['text' => $buttonValues['my_info'], 'callback_data' => "myInfo"]],
         // [['text'=>$buttonValues['invite_friends'],'callback_data'=>"inviteFriends"],['text'=>$buttonValues['my_info'],'callback_data'=>"myInfo"]],
         (($botState['sharedExistence'] == "on" && $botState['individualExistence'] == "on") ?
-            [['text' => $buttonValues['shared_existence'], 'callback_data' => "availableServers"], ['text' => $buttonValues['individual_existence'], 'callback_data' => "availableServers2"]] : []),
+        [['text' => $buttonValues['shared_existence'], 'callback_data' => "availableServers"], ['text' => $buttonValues['individual_existence'], 'callback_data' => "availableServers2"]] : []),
         (($botState['sharedExistence'] == "on" && $botState['individualExistence'] != "on") ?
             [['text' => $buttonValues['shared_existence'], 'callback_data' => "availableServers"]] : []),
         (($botState['sharedExistence'] != "on" && $botState['individualExistence'] == "on") ?
@@ -288,7 +287,8 @@ function getMainKeys()
             [['text' => $buttonValues['search_config'], 'callback_data' => "showUUIDLeft"]]
             : []),
             
-        [['text' => '💳 موجودی: ' . $my_wallet_custom_number . ' - ➕ افزایش موجودی', 'callback_data' => "reciveApplications"]],
+            [['text' => '💳 موجودی: ' . $my_wallet_custom_number . ' ➕ افزایش موجودی', 'callback_data' => "reciveApplications"]],
+            [['text' => $buttonValues['buy_subscriptions'], 'callback_data' => "buySubscription"]],
     ]);
     $stmt = $connection->prepare("SELECT * FROM `setting` WHERE `type` LIKE '%MAIN_BUTTONS%'");
     $stmt->execute();
