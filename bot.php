@@ -117,9 +117,9 @@ if (preg_match('/^\/([Ss]tart)/', $text) or $text == $buttonValues['back_to_main
     setUser("", "temp");
     if (isset($data) and $data == "mainMenu") {
         $res = editText($message_id, $mainValues['start_message'], getMainKeys());
-        if (!$res->ok) {
-            sendMessage($mainValues['start_message'], getMainKeys());
-        }
+        // if (!$res->ok) {
+        //     sendMessage($mainValues['start_message'], getMainKeys());
+        // }
     } else {
         if ($from_id != $admin && empty($userInfo['first_start'])) {
             setUser('sent', 'first_start');
