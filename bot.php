@@ -659,7 +659,7 @@ if ($data == "myInfo") {
     $stmt->close();
 
     $stmt = $connection->prepare("SELECT COUNT(amount) as count, SUM(amount) as total FROM `orders_list` WHERE `userid` = ?");
-    $stmt->bind_param("i", $userId);
+    $stmt->bind_param("i", $from_id);
     $stmt->execute();
     $info = $stmt->get_result()->fetch_assoc();
     $stmt->close();
@@ -686,9 +686,9 @@ if ($data == "myInfo") {
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
 
-💰 جمع کل خرید شما: <code> $totalBoughtPrice </code>
+💰 جمع کل خرید شما:  $totalBoughtPrice
 
-☑️ کل سرویس ها : <code> $totalBuys </code> عدد
+☑️ کل سرویس ها :  $totalBuys  عدد
 ⁮⁮ ⁮⁮ ⁮⁮ ⁮⁮
 ",
         $keys,
@@ -2470,7 +2470,7 @@ if ((preg_match('/^discountCustomPlanDay(\d+)/', $userInfo['step'], $match) || p
     if ($botState['walletState'] == "on") $keyboard[] = [['text' => $buttonValues['pay_with_wallet'],  'callback_data' => "payCustomWithWallet$hash_id"]];
     if ($botState['tronWallet'] == "on") $keyboard[] = [['text' => $buttonValues['tron_gateway'],  'callback_data' => "payWithTronWallet" . $hash_id]];
 
-    if (!preg_match('/^discountCustomPlanDay/', $userInfo['step'])) $keyboard[] = [['text' => " 🎁 نکنه کد تخفیف داری؟ ",  'callback_data' => "haveDiscountCustom_" . $rowId]];
+    if (!preg_match('/^discountCustomPlanDay/', $userInfo['step'])) $keyboard[] = [['text' => " اعمال کد تخفیف ",  'callback_data' => "haveDiscountCustom_" . $rowId]];
     $keyboard[] = [['text' => $buttonValues['cancel'], 'callback_data' => "mainMenu"]];
     $price = ($price == 0) ? 'رایگان' : number_format($price) . ' تومان ';
     sendMessage(str_replace(['VOLUME', 'DAYS', 'PLAN-NAME', 'PRICE', 'DESCRIPTION'], [$volume, $days, $name, $price, $desc], $mainValues['buy_subscription_detail']), json_encode(['inline_keyboard' => $keyboard]), "HTML");
@@ -2700,7 +2700,7 @@ if ((preg_match('/^discountSelectPlan(\d+)_(\d+)_(\d+)/', $userInfo['step'], $ma
         if ($botState['walletState'] == "on") $keyboard[] = [['text' => $buttonValues['pay_with_wallet'],  'callback_data' => "payWithWallet$hash_id"]];
         if ($botState['tronWallet'] == "on") $keyboard[] = [['text' => $buttonValues['tron_gateway'],  'callback_data' => "payWithTronWallet" . $hash_id]];
 
-        if (!preg_match('/^discountSelectPlan/', $userInfo['step'])) $keyboard[] = [['text' => " 🎁 نکنه کد تخفیف داری؟ ",  'callback_data' => "haveDiscountSelectPlan_" . $match[1] . "_" . $match[2] . "_" . $rowId]];
+        if (!preg_match('/^discountSelectPlan/', $userInfo['step'])) $keyboard[] = [['text' => " اعمال کد تخفیف ",  'callback_data' => "haveDiscountSelectPlan_" . $match[1] . "_" . $match[2] . "_" . $rowId]];
     }
     $keyboard[] = [['text' => $buttonValues['back_to_main'], 'callback_data' => "selectCategory{$call_id}_{$sid}"]];
     $priceC = ($price == 0) ? 'رایگان' : number_format($price) . ' تومان ';
@@ -3523,18 +3523,18 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             foreach ($vraylink as $vray_link) {
                 $acc_text = "
-                    😍 سفارش جدید شما
-                    📡 پروتکل: $protocol
-                    🔮 نام سرویس: $remark
-                    🔋حجم سرویس: $volume گیگ
-                    ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
-                    " . ($botState['configLinkState'] != "off" ? "
-                    💝 config : <code>$vray_link</code>" : "");
-                                    if ($botState['subLinkState'] == "on") $acc_text .= "
+💎 سفارش جدید شما
+📡 پروتکل: $protocol
+🔮 نام سرویس: $remark
+🔋حجم سرویس: $volume گیگ
+⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
+" . ($botState['configLinkState'] != "off" ? "
+💝 config : <code>$vray_link</code>" : "");
+                if ($botState['subLinkState'] == "on") $acc_text .= "
 
-                    🔋 Volume web: <code> $botUrl" . "search.php?id=" . $uniqid . "</code>
+🔋 Volume web: <code> $botUrl" . "search.php?id=" . $uniqid . "</code>
 
-                    \n🌐 subscription : <code>$subLink</code>";
+\n🌐 subscription : <code>$subLink</code>";
 
                 $file = RandomString() . ".png";
                 $ecc = 'L';
@@ -3606,13 +3606,13 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
         ],
     ]]);
 
-    
+
     // get vray link from orders_list
-    // $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
-    // $stmt->bind_param("i", $server_id);
-    // $stmt->execute();
-    // $portType = $stmt->get_result()->fetch_assoc()['port_type'];
-    // $stmt->close();
+    $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
+    $stmt->bind_param("i", $v2ray_remark_custoom);
+    $stmt->execute();
+    $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['link'];
+    $stmt->close();
 
     if ($payInfo['type'] == "RENEW_SCONFIG") {
         $msg = str_replace(
@@ -3623,7 +3623,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
     } else {
         $msg = str_replace(
             ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS', 'LINK'],
-            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, $v2ray_remark_custoom],
+            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, json_decode($v2ray_link_custom, true)[0]],
             $mainValues['buy_new_account_request']
         );
     }
@@ -7296,7 +7296,7 @@ if (preg_match('/^discountRenew(\d+)_(\d+)/', $userInfo['step'], $match) || preg
     if ($botState['walletState'] == "on") $keyboard[] = [['text' => "پرداخت با موجودی مبلغ $price",  'callback_data' => "payRenewWithWallet$hash_id"]];
     if ($botState['tronWallet'] == "on") $keyboard[] = [['text' => $buttonValues['tron_gateway'],  'callback_data' => "payWithTronWallet" . $hash_id]];
 
-    if (!preg_match('/^discountRenew/', $userInfo['step'])) $keyboard[] = [['text' => " 🎁 نکنه کد تخفیف داری؟ ",  'callback_data' => "haveDiscountRenew_" . $match[1] . "_" . $rowId]];
+    if (!preg_match('/^discountRenew/', $userInfo['step'])) $keyboard[] = [['text' => " اعمال کد تخفیف ",  'callback_data' => "haveDiscountRenew_" . $match[1] . "_" . $rowId]];
 
     $keyboard[] = [['text' => $buttonValues['cancel'], 'callback_data' => "mainMenu"]];
 
