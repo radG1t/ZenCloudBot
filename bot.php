@@ -659,7 +659,7 @@ if ($data == "myInfo") {
     $stmt->close();
 
     $stmt = $connection->prepare("SELECT COUNT(amount) as count, SUM(amount) as total FROM `orders_list` WHERE `userid` = ?");
-    $stmt->bind_param("i", $userId);
+    $stmt->bind_param("i", $from_id);
     $stmt->execute();
     $info = $stmt->get_result()->fetch_assoc();
     $stmt->close();
@@ -685,7 +685,7 @@ if ($data == "myInfo") {
 🍄 یوزرنیم: <code> @$username </code>
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
-
+$userId
 💰 جمع کل خرید شما:  $totalBoughtPrice
 
 ☑️ کل سرویس ها :  $totalBuys  عدد
