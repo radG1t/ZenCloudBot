@@ -3623,7 +3623,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
     } else {
         $msg = str_replace(
             ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS', 'LINK'],
-            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, $v2ray_link_custom[0]],
+            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, json_decode($v2ray_link_custom)],
             $mainValues['buy_new_account_request']
         );
     }
