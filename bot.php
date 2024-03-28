@@ -686,9 +686,9 @@ if ($data == "myInfo") {
 👤 اسم:  <code> $first_name </code>
 💰 موجودی: <code> $myWallet </code>
 
-💰 جمع کل خرید شما: <code> $totalBoughtPrice </code>
+💰 جمع کل خرید شما:  $totalBoughtPrice
 
-☑️ کل سرویس ها : <code> $totalBuys </code> عدد
+☑️ کل سرویس ها :  $totalBuys  عدد
 ⁮⁮ ⁮⁮ ⁮⁮ ⁮⁮
 ",
         $keys,
@@ -3530,7 +3530,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
-if ($botState['subLinkState'] == "on") $acc_text .= "
+                if ($botState['subLinkState'] == "on") $acc_text .= "
 
 🔋 Volume web: <code> $botUrl" . "search.php?id=" . $uniqid . "</code>
 
@@ -3606,7 +3606,7 @@ if ($botState['subLinkState'] == "on") $acc_text .= "
         ],
     ]]);
 
-    
+
     // get vray link from orders_list
     $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
     $stmt->bind_param("i", $v2ray_remark_custoom);
