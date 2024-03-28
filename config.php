@@ -248,6 +248,8 @@ function getMainKeys()
     $my_wallet_custom = $stmt->get_result()->fetch_assoc()['wallet'];
     $stmt->close();
 
+    $my_wallet_custom_number = number_format($my_wallet_custom) . " تومان";
+
     if ($botState['agencyState'] == "on" && $userInfo['is_agent'] == 1) {
         $mainKeys = array_merge($mainKeys, [
             [['text' => $buttonValues['agency_setting'], 'callback_data' => "agencySettings"]],
@@ -282,7 +284,7 @@ function getMainKeys()
         (($botState['sharedExistence'] != "on" && $botState['individualExistence'] == "on") ?
             [['text' => $buttonValues['individual_existence'], 'callback_data' => "availableServers2"]] : []
         ),
-        [['text' => 'موچودی:' . $my_wallet_custom . 'ت - افزایش موجودی', 'callback_data' => "reciveApplications"]],
+        [['text' => 'موچودی:' . $my_wallet_custom_number . ' - افزایش موجودی', 'callback_data' => "reciveApplications"]],
 
         (($botState['searchState'] == "on" || $from_id == $admin || $userInfo['isAdmin'] == true) ?
             [['text' => $buttonValues['search_config'], 'callback_data' => "showUUIDLeft"]]
