@@ -3608,11 +3608,11 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 
     
     // get vray link from orders_list
-    // $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
-    // $stmt->bind_param("i", $server_id);
-    // $stmt->execute();
-    // $portType = $stmt->get_result()->fetch_assoc()['port_type'];
-    // $stmt->close();
+    $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
+    $stmt->bind_param("i", $v2ray_remark_custoom);
+    $stmt->execute();
+    $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['link'];
+    $stmt->close();
 
     if ($payInfo['type'] == "RENEW_SCONFIG") {
         $msg = str_replace(
@@ -3623,7 +3623,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
     } else {
         $msg = str_replace(
             ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS', 'LINK'],
-            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, $v2ray_remark_custoom],
+            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, $v2ray_link_custom],
             $mainValues['buy_new_account_request']
         );
     }
