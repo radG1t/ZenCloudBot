@@ -287,7 +287,7 @@ function getMainKeys()
             [['text' => $buttonValues['search_config'], 'callback_data' => "showUUIDLeft"]]
             : []),
         //reciveApplications
-        [['text' => $buttonValues['buy_subscriptions'], 'callback_data' => "customSharjWallet"]],
+        // [['text' => $buttonValues['buy_subscriptions'], 'callback_data' => "customSharjWallet"]],
         // [['text' => '💳 موجودی: ' . $my_wallet_custom_number . ' ➕ افزایش موجودی', 'callback_data' => "customSharjWallet"]],
         [['text' => $buttonValues['buy_subscriptions'], 'callback_data' => "buySubscription"]],
     ]);
