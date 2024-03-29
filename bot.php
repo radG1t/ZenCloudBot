@@ -9489,6 +9489,7 @@ if ($data == 'customSharjWallet') {
     // $keyboard = array_chunk($keyboard, 1);
 
     $keyboard[] = ['text' => '🎧 تماس با پشتیبان خود 🎧', 'url' => "https://t.me/vpn_masters_admin"];
+    $keyboard[] = ['text' => $buttonValues['back_to_main'], 'callback_data' => "mainMenu"];
     $keyboard = array_chunk($keyboard, 1);
     // $glassButtonCustom = ['text' => 'تماس با پشتیبان خود', 'url' => "tg://user?id=vpn_masters_admin"];
     editText($message_id, "
