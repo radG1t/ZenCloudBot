@@ -1761,7 +1761,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     $stmt->close();
                 }
                 $msg = str_replace(
-                    ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS'],
+                    ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS', 'LINK'],
                     [$serverTitle, 'ارزی ریالی', $from_id, $username, $first_name, $price, $remark, $volume, $days],
                     $mainValues['buy_new_account_request']
                 );
@@ -3611,7 +3611,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
     $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `token`=?");
     $stmt->bind_param("s", $token);
     $stmt->execute();
-    $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['remark'];
+    $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['link'];
     $stmt->close();
 
     if ($payInfo['type'] == "RENEW_SCONFIG") {
@@ -3623,7 +3623,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
     } else {
         $msg = str_replace(
             ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS', 'LINK'],
-            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, 'aaaaaa'],
+            [$serverTitle, 'کیف پول', $from_id, $username, $first_name, $price, $remark, $volume, $days, json_decode($v2ray_link_custom, true)[0]],
             $mainValues['buy_new_account_request']
         );
     }
