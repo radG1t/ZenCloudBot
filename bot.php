@@ -3609,7 +3609,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 
     // get vray link from orders_list
     $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
-    $stmt->bind_param("i", $v2ray_remark_custoom);
+    $stmt->bind_param("i", $remark);
     $stmt->execute();
     $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['link'];
     $stmt->close();
