@@ -53,9 +53,9 @@ $mainValues = [
 ⏰ مدت سرویس: DAYS روز",
     'buy_new_account_request' => "❗️|💳 خرید جدید ( TYPE )
 
-▫️آیدی کاربر: USER-ID
+▫️آیدی کاربر: <code>USER-ID</code>
 👨‍💼اسم کاربر: NAME
-⚡️ نام کاربری: USERNAME
+⚡️ نام کاربری: @USERNAME
 💰مبلغ پرداختی: PRICE تومان
 🚦سرور: SERVERNAME
 ✏️ نام سرویس: REMARK
@@ -143,7 +143,7 @@ $mainValues = [
 
 نام و نام خانوادگی: FULLNAME
 نام کاربری: @USERNAME
-آیدی عددی: USERID
+آیدی عددی: <code>USERID</code>
 
 به نظرم یه پیام براش بفرست مثلا ( تبلیغی یا خوش آمد گویی ) 😍",
     "not_joine_yet" => "هنوز که عضو کانال نشدی",
