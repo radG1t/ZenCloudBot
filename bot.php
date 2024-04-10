@@ -3474,14 +3474,14 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             if ($botState['remark'] == "digits") {
                 $rnd = rand(10000, 99999);
                 $remark = "{$srv_remark}-{$rnd}";
-                $v2ray_remark_custoom = $remark;
+                $v2ray_remark_custoom = "{$srv_remark}-{$rnd}";
             } elseif ($botState['remark'] == "manual") {
                 $remark = $payInfo['description'];
-                $v2ray_remark_custoom = $remark;
+                $v2ray_remark_custoom = $payInfo['description'];
             } else {
                 $rnd = rand(1111, 99999);
                 $remark = "{$srv_remark}-{$from_id}-{$rnd}";
-                $v2ray_remark_custoom = $remark;
+                $v2ray_remark_custoom = "{$srv_remark}-{$from_id}-{$rnd}";
             }
 
             if ($portType == "auto") {
@@ -3609,7 +3609,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 
     // get vray link from orders_list
     $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
-    $stmt->bind_param("i", $v2ray_remark_custoom);
+    $stmt->bind_param("i", $remark);
     $stmt->execute();
     $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['link'];
     $stmt->close();
