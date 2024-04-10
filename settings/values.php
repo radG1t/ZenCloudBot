@@ -62,7 +62,7 @@ $mainValues = [
 🔋حجم سرویس: VOLUME گیگ
 ⏰ مدت سرویس: DAYS روز
 ----------------
-<code>LINK</code> ",
+<code>REMARK</code> ",
     'buy_new_much_account_request' => "❗️|💳 خرید جدید ( TYPE )
 
 ▫️آیدی کاربر: USER-ID
