@@ -1761,7 +1761,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     $stmt->close();
                 }
                 $msg = str_replace(
-                    ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS', 'LINK'],
+                    ['SERVERNAME', 'TYPE', 'USER-ID', 'USERNAME', 'NAME', 'PRICE', 'REMARK', 'VOLUME', 'DAYS'],
                     [$serverTitle, 'ارزی ریالی', $from_id, $username, $first_name, $price, $remark, $volume, $days],
                     $mainValues['buy_new_account_request']
                 );
