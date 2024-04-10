@@ -3608,10 +3608,10 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 
 
     // get vray link from orders_list
-    $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `remark`=?");
-    $stmt->bind_param("s", $remark);
+    $stmt = $connection->prepare("SELECT * FROM `orders_list` WHERE `token`=?");
+    $stmt->bind_param("s", $token);
     $stmt->execute();
-    $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['link'];
+    $v2ray_link_custom = $stmt->get_result()->fetch_assoc()['remark'];
     $stmt->close();
 
     if ($payInfo['type'] == "RENEW_SCONFIG") {
