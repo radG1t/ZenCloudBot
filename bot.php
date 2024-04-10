@@ -3474,14 +3474,14 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             if ($botState['remark'] == "digits") {
                 $rnd = rand(10000, 99999);
                 $remark = "{$srv_remark}-{$rnd}";
-                $v2ray_remark_custoom = "{$srv_remark}-{$rnd}";
+                $v2ray_remark_custoom = $remark;
             } elseif ($botState['remark'] == "manual") {
                 $remark = $payInfo['description'];
-                $v2ray_remark_custoom = $payInfo['description'];
+                $v2ray_remark_custoom = $remark;
             } else {
                 $rnd = rand(1111, 99999);
                 $remark = "{$srv_remark}-{$from_id}-{$rnd}";
-                $v2ray_remark_custoom = "{$srv_remark}-{$from_id}-{$rnd}";
+                $v2ray_remark_custoom = $remark;
             }
 
             if ($portType == "auto") {
