@@ -1,7 +1,7 @@
 <?php
 
 $mainValues = [
-    'banned' => '❌ | هی بهت گفتم آدم باش گوش نکردی ، الان مسدود شدی 😑😂',
+    'banned' => 'ربات حذف گردید',
     'customer_custome_plan_day' => "⏰|لطفا  تعداد روز اشتراکت رو وارد کن\n💰|هزینه هر روز: DAY-PRICE",
     'customer_custome_plan_volume' => "🔋|لطفا مقدار گیگابایت سرویست رو وارد کن\n💰|هزینه هر گیگ: VOLUME-PRICE",
     'customer_custome_plan_name' => 'اسم کانفیگ رو وارد کن ( حروف انگیلیسی و عدد باهم وارد کنید )',
