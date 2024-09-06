@@ -1,3 +1,4 @@
+
 <?php
 include_once 'config.php';
 check();
@@ -533,7 +534,7 @@ if ($userInfo['step'] == "editInviteBannerText" && ($from_id == $admin || $userI
         $data['type'] = 'text';
         $data['text'] = $text;
     } else {
-        sendMessage("🥺 | بنر ارسال شده پشتیبانی نمی شود");
+        sendMessage(" | بنر ارسال شده پشتیبانی نمی شود");
         exit();
     }
 
@@ -1260,11 +1261,11 @@ if (preg_match('/^createAccAmount(\d+)_(\d+)_(\d+)/', $userInfo['step'], $match)
         }
 
         if (is_null($response)) {
-            sendMessage('❌ | 🥺 اتصال به سرور برقرار نیست لطفا پشتیبانی رو در جریان بزار ...');
+            sendMessage('❌ |  اتصال به سرور برقرار نیست لطفا پشتیبانی رو در جریان بزار ...');
             break;
         }
         if ($response == "inbound not Found") {
-            sendMessage("❌ | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، پشتیبانی رو در جریان بزار ...");
+            sendMessage("❌ |  سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، پشتیبانی رو در جریان بزار ...");
             break;
         }
         if (!$response->success) {
@@ -1798,7 +1799,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     $response = editInboundTraffic($server_id, $uuid, $volume, $days, "renew");
 
                 if (is_null($response)) {
-                    alert('🔻مشکل فنی در اتصال به سرور. لطفا به مدیریت اطلاع بدید', true);
+                    alert('🔻مشکل فنی در اتصال به سرور. لطفا به پشتیبانییت اطلاع بدید', true);
                     exit;
                 }
                 $stmt = $connection->prepare("UPDATE `orders_list` SET `expire_date` = ?, `notif` = 0 WHERE `id` = ?");
@@ -1887,7 +1888,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
 
                     exit;
                 } else {
-                    alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به مدیریت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
+                    alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به پشتیبانییت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
                     exit;
                 }
             } elseif (preg_match('/^INCREASE_VOLUME_(\d+)_(\d+)/', $payType, $increaseInfo)) {
@@ -1943,7 +1944,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     sendMessage("✅$volume گیگ به حجم سرویس شما اضافه شد", getMainKeys());
                     exit;
                 } else {
-                    alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به مدیریت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
+                    alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به پشتیبانییت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
                     exit;
                 }
             } elseif ($payType == "RENEW_SCONFIG") {
@@ -1974,7 +1975,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     $response = editInboundTraffic($server_id, $uuid, $volume, $days, "renew");
 
                 if (is_null($response)) {
-                    alert('🔻مشکل فنی در اتصال به سرور. لطفا به مدیریت اطلاع بدید', true);
+                    alert('🔻مشکل فنی در اتصال به سرور. لطفا به پشتیبانییت اطلاع بدید', true);
                     exit;
                 }
                 $stmt = $connection->prepare("INSERT INTO `increase_order` VALUES (NULL, ?, ?, ?, ?, ?, ?);");
@@ -2825,7 +2826,7 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
         exit;
     }
     if ($response == "inbound not Found") {
-        alert("❌ |  سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...");
+        alert("❌ |  سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، پشتیبانی رو در جریان بزار ...");
         exit;
     }
     if (!$response->success) {
@@ -3402,7 +3403,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             $response = editInboundTraffic($server_id, $uuid, $volume, $days, "renew");
 
         if (is_null($response)) {
-            alert('🔻مشکل فنی در اتصال به سرور. لطفا به مدیریت اطلاع بدید', true);
+            alert('🔻مشکل فنی در اتصال به سرور. لطفا به پشتیبانییت اطلاع بدید', true);
             exit;
         }
         $stmt = $connection->prepare("INSERT INTO `increase_order` VALUES (NULL, ?, ?, ?, ?, ?, ?);");
@@ -3503,15 +3504,15 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
             }
 
             if (is_null($response)) {
-                sendMessage('❌ | 🥺 گلم ، اتصال به سرور برقرار نیست لطفا مدیر رو در جریان بزار ...');
+                sendMessage('❌ |   اتصال به سرور برقرار نیست لطفا پشتیبانی رو در جریان بزار ...');
                 exit;
             }
             if ($response == "inbound not Found") {
-                sendMessage("❌ | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...");
+                sendMessage("❌ |  سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، پشتیبانی رو در جریان بزار ...");
                 exit;
             }
             if (!$response->success) {
-                sendMessage('❌ | 😮 وای خطا داد لطفا سریع به مدیر بگو ...');
+                sendMessage('❌ | خطا، نام وارد شده برای کانفیگ تکراری میباشد...');
                 sendMessage("خطای سرور {$serverInfo['title']}:\n\n" . ($response->msg), null, null, $admin);
                 exit;
             }
@@ -3933,7 +3934,7 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
             $response = editInboundTraffic($server_id, $uuid, $volume, $days, "renew");
 
         if (is_null($response)) {
-            alert('🔻مشکل فنی در اتصال به سرور. لطفا به مدیریت اطلاع بدید', true);
+            alert('🔻مشکل فنی در اتصال به سرور. لطفا به پشتیبانییت اطلاع بدید', true);
             exit;
         }
         $stmt = $connection->prepare("INSERT INTO `increase_order` VALUES (NULL, ?, ?, ?, ?, ?, ?);");
@@ -4018,15 +4019,15 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
                 }
             }
             if (is_null($response)) {
-                sendMessage('❌ | 🥺 گلم ، اتصال به سرور برقرار نیست لطفا مدیر رو در جریان بزار ...');
+                sendMessage('❌ |   اتصال به سرور برقرار نیست لطفا پشتیبانی رو در جریان بزار ...');
                 exit;
             }
             if ($response == "inbound not Found") {
-                sendMessage("❌ | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...");
+                sendMessage("❌ |  سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، پشتیبانی رو در جریان بزار ...");
                 exit;
             }
             if (!$response->success) {
-                sendMessage('❌ | 😮 وای خطا داد لطفا سریع به مدیر بگو ...');
+                sendMessage('❌ | خطا، نام وارد شده برای کانفیگ تکراری میباشد...');
                 sendMessage("خطای سرور {$serverInfo['title']}:\n\n" . ($response->msg), null, null, $admin);
                 exit;
             }
@@ -5229,7 +5230,7 @@ if ($userInfo['step'] == "banUser" && ($from_id == $admin || $userInfo['isAdmin'
     }
 }
 if ($data == "mainMenuButtons" && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
-    editText($message_id, "مدیریت دکمه های صفحه اصلی", getMainMenuButtonsKeys());
+    editText($message_id, "پشتیبانییت دکمه های صفحه اصلی", getMainMenuButtonsKeys());
 }
 if (preg_match('/^delMainButton(\d+)/', $data, $match) && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     $stmt = $connection->prepare("DELETE FROM `setting` WHERE `id` = ?");
@@ -5238,7 +5239,7 @@ if (preg_match('/^delMainButton(\d+)/', $data, $match) && ($from_id == $admin ||
     $stmt->close();
 
     alert("با موفقیت حذف شد");
-    editText($message_id, "مدیریت دکمه های صفحه اصلی", getMainMenuButtonsKeys());
+    editText($message_id, "پشتیبانییت دکمه های صفحه اصلی", getMainMenuButtonsKeys());
 }
 if ($data == "addNewMainButton" && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     delMessage();
@@ -5266,7 +5267,7 @@ if (preg_match('/^setMainButtonAnswer(.*)/', $userInfo['step'], $match) && ($fro
     $stmt->execute();
     $stmt->close();
 
-    sendMessage("مدیریت دکمه های صفحه اصلی", getMainMenuButtonsKeys());
+    sendMessage("پشتیبانییت دکمه های صفحه اصلی", getMainMenuButtonsKeys());
 }
 if ($userInfo['step'] == "unbanUser" && ($from_id == $admin || $userInfo['isAdmin'] == true) && $text != $buttonValues['cancel']) {
     if (is_numeric($text)) {
@@ -5463,15 +5464,15 @@ if (preg_match('/freeTrial(\d+)/', $data, $match)) {
         }
     }
     if (is_null($response)) {
-        alert('❌ | 🥺 گلم ، اتصال به سرور برقرار نیست لطفا مدیر رو در جریان بزار ...');
+        alert('❌ |   اتصال به سرور برقرار نیست لطفا پشتیبانی رو در جریان بزار ...');
         exit;
     }
     if ($response == "inbound not Found") {
-        alert("❌ | 🥺 سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، مدیر رو در جریان بزار ...");
+        alert("❌ |  سطر (inbound) با آیدی $inbound_id تو این سرور وجود نداره ، پشتیبانی رو در جریان بزار ...");
         exit;
     }
     if (!$response->success) {
-        alert('❌ | 😮 وای خطا داد لطفا سریع به مدیر بگو ...');
+        alert('❌ | خطا، نام وارد شده برای کانفیگ تکراری میباشد...');
         sendMessage("خطای سرور {$serverInfo['title']}:\n\n" . ($response->msg), null, null, $admin);
         exit;
     }
@@ -6351,7 +6352,7 @@ if ($data == 'backplan' and ($from_id == $admin || $userInfo['isAdmin'] == true)
     $keyboard[] = [['text' => "➕ افزودن پلن دلخواه", 'callback_data' => "editCustomPlan"]];
     $keyboard[] = [['text' => $buttonValues['back_button'], 'callback_data' => "managePanel"]];
 
-    $msg = ' ☑️ مدیریت پلن ها:';
+    $msg = ' ☑️ پشتیبانییت پلن ها:';
 
     if (isset($data) and $data == 'backplan') {
         editText($message_id, $msg, json_encode(['inline_keyboard' => $keyboard]));
@@ -7443,7 +7444,7 @@ if (preg_match('/approveRenewAcc(.*)/', $data, $match) && ($from_id == $admin ||
         $response = editInboundTraffic($server_id, $uuid, $volume, $days, "renew");
 
     if (is_null($response)) {
-        alert('🔻مشکل فنی در اتصال به سرور. لطفا به مدیریت اطلاع بدید', true);
+        alert('🔻مشکل فنی در اتصال به سرور. لطفا به پشتیبانییت اطلاع بدید', true);
         exit;
     }
     $stmt = $connection->prepare("UPDATE `orders_list` SET `expire_date` = ?, `notif` = 0 WHERE `id` = ?");
@@ -7560,7 +7561,7 @@ if (preg_match('/payRenewWithWallet(.*)/', $data, $match)) {
         $response = editInboundTraffic($server_id, $uuid, $volume, $days, "renew");
 
     if (is_null($response)) {
-        alert('🔻مشکل فنی در اتصال به سرور. لطفا به مدیریت اطلاع بدید', true);
+        alert('🔻مشکل فنی در اتصال به سرور. لطفا به پشتیبانییت اطلاع بدید', true);
         exit;
     }
     $stmt = $connection->prepare("UPDATE `orders_list` SET `expire_date` = ?, `notif` = 0 WHERE `id` = ?");
@@ -7761,7 +7762,7 @@ if (preg_match('/switchServer(.+)_(.+)/', $data, $match)) {
     if ($inbound_id > 0) {
         $remove_response = deleteClient($server_id, $inbound_id, $uuid);
         if (is_null($remove_response)) {
-            alert('🔻اتصال به سرور برقرار نیست. لطفا به مدیریت اطلاع بدید', true);
+            alert('🔻اتصال به سرور برقرار نیست. لطفا به پشتیبانییت اطلاع بدید', true);
             exit;
         }
         if ($remove_response) {
@@ -7805,15 +7806,15 @@ if (preg_match('/switchServer(.+)_(.+)/', $data, $match)) {
 
             $response = addInboundAccount($sid, '', $inbound_id, 1, $newRemark, 0, 1, $newArr);
             if (is_null($response)) {
-                alert('🔻اتصال به سرور برقرار نیست. لطفا به مدیریت اطلاع بدید', true);
+                alert('🔻اتصال به سرور برقرار نیست. لطفا به پشتیبانییت اطلاع بدید', true);
                 exit;
             }
             if ($response == "inbound not Found") {
-                alert("🔻سطر (inbound) با آیدی $inbound_id در این سرور یافت نشد. لطفا به مدیریت اطلاع بدید", true);
+                alert("🔻سطر (inbound) با آیدی $inbound_id در این سرور یافت نشد. لطفا به پشتیبانییت اطلاع بدید", true);
                 exit;
             }
             if (!$response->success) {
-                alert('🔻خطا در ساخت کانفیگ. لطفا به مدیریت اطلاع بدید', true);
+                alert('🔻خطا در ساخت کانفیگ. لطفا به پشتیبانییت اطلاع بدید', true);
                 exit;
             }
             $vray_link = getConnectionLink($sid, $uniqid, $protocol, $newRemark, $port, $netType, $inbound_id);
@@ -7822,7 +7823,7 @@ if (preg_match('/switchServer(.+)_(.+)/', $data, $match)) {
     } else {
         $response = deleteInbound($server_id, $uuid);
         if (is_null($response)) {
-            alert('🔻اتصال به سرور برقرار نیست. لطفا به مدیریت اطلاع بدید', true);
+            alert('🔻اتصال به سرور برقرار نیست. لطفا به پشتیبانییت اطلاع بدید', true);
             exit;
         }
         if ($response) {
@@ -8341,7 +8342,7 @@ if (preg_match('/payIncraseDayWithWallet(.*)/', $data, $match)) {
 
         exit;
     } else {
-        alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به مدیریت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
+        alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به پشتیبانییت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
         exit;
     }
 }
@@ -8739,7 +8740,7 @@ if (preg_match('/payIncraseWithWallet(.*)/', $data, $match)) {
         editText($message_id, "✅$volume گیگ به حجم سرویس شما اضافه شد", getMainKeys());
         exit;
     } else {
-        alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به مدیریت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
+        alert("به دلیل مشکل فنی امکان افزایش حجم نیست. لطفا به پشتیبانییت اطلاع بدید یا 5دقیقه دیگر دوباره تست کنید", true);
         exit;
     }
 }
@@ -8751,7 +8752,7 @@ if (($data == 'categoriesSetting' || preg_match('/^nextCategoryPage(\d+)/', $dat
     if (isset($match[1])) $keys = getCategoriesKeys($match[1]);
     else $keys = getCategoriesKeys();
 
-    editText($message_id, "☑️ مدیریت دسته ها:", $keys);
+    editText($message_id, "☑️ پشتیبانییت دسته ها:", $keys);
 }
 if ($data == 'addNewCategory' and (($from_id == $admin || $userInfo['isAdmin'] == true))) {
     setUser($data);
@@ -8800,7 +8801,7 @@ if (preg_match('/^wizwizcategorydelete(\d+)_(\d+)/', $data, $match) and ($from_i
     $stmt->close();
 
     $keys = getCategoriesKeys($match[2]);
-    editText($message_id, "☑️ مدیریت دسته ها:", $keys);
+    editText($message_id, "☑️ پشتیبانییت دسته ها:", $keys);
 }
 if (preg_match('/^wizwizcategoryedit/', $data) and ($from_id == $admin || $userInfo['isAdmin'] == true) && $text != $buttonValues['cancel']) {
     setUser($data);
@@ -8817,13 +8818,13 @@ if (preg_match('/wizwizcategoryedit(\d+)_(\d+)/', $userInfo['step'], $match) && 
     sendMessage("با موفقیت برات تغییر دادم ☺️☑️");
     setUser();
 
-    sendMessage("☑️ مدیریت دسته ها:", getCategoriesKeys($match[2]));
+    sendMessage("☑️ پشتیبانییت دسته ها:", getCategoriesKeys($match[2]));
 }
 if (($data == 'serversSetting' || preg_match('/^nextServerPage(\d+)/', $data, $match)) and ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     if (isset($match[1])) $keys = getServerListKeys($match[1]);
     else $keys = getServerListKeys();
 
-    editText($message_id, "☑️ مدیریت سرور ها:", $keys);
+    editText($message_id, "☑️ پشتیبانییت سرور ها:", $keys);
 }
 if (preg_match('/^toggleServerState(\d+)_(\d+)/', $data, $match) && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     $stmt = $connection->prepare("UPDATE `server_info` SET `state` = IF(`state` = 0,1,0) WHERE `id`=?");
@@ -8835,11 +8836,11 @@ if (preg_match('/^toggleServerState(\d+)_(\d+)/', $data, $match) && ($from_id ==
     alert("وضعیت سرور با موفقیت تغییر کرد");
 
     $keys = getServerListKeys($match[2]);
-    editText($message_id, "☑️ مدیریت سرور ها:", $keys);
+    editText($message_id, "☑️ پشتیبانییت سرور ها:", $keys);
 }
 if (preg_match('/^showServerSettings(\d+)_(\d+)/', $data, $match) and ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     $keys = getServerConfigKeys($match[1], $match[2]);
-    editText($message_id, "☑️ مدیریت سرور ها: $cname", $keys);
+    editText($message_id, "☑️ پشتیبانییت سرور ها: $cname", $keys);
 }
 if (preg_match('/^changesServerIp(\d+)/', $data, $match) && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     $stmt = $connection->prepare("SELECT * FROM `server_config` WHERE `id`=?");
@@ -8863,7 +8864,7 @@ if (preg_match('/^changesServerIp(\d+)/', $userInfo['step'], $match) && ($from_i
     setUser();
 
     $keys = getServerConfigKeys($match[1]);
-    sendMessage("☑️ مدیریت سرور ها: $cname", $keys);
+    sendMessage("☑️ پشتیبانییت سرور ها: $cname", $keys);
     exit();
 }
 if (preg_match('/^changePortType(\d+)/', $data, $match) && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
@@ -8874,7 +8875,7 @@ if (preg_match('/^changePortType(\d+)/', $data, $match) && ($from_id == $admin |
     alert("نوعیت پورت سرور مورد نظر با موفقیت تغییر کرد");
 
     $keys = getServerConfigKeys($match[1]);
-    editText($message_id, "☑️ مدیریت سرور ها: $cname", $keys);
+    editText($message_id, "☑️ پشتیبانییت سرور ها: $cname", $keys);
 
     exit();
 }
@@ -8885,7 +8886,7 @@ if (preg_match('/^changeRealityState(\d+)/', $data, $match) && ($from_id == $adm
     $stmt->close();
 
     $keys = getServerConfigKeys($match[1]);
-    editText($message_id, "☑️ مدیریت سرور ها: $cname", $keys);
+    editText($message_id, "☑️ پشتیبانییت سرور ها: $cname", $keys);
 
     exit();
 }
@@ -8915,7 +8916,7 @@ if (preg_match('/^chhangeServerType(\w+)_(\d+)/', $data, $match) && ($from_id ==
     $stmt->close();
 
     $keys = getServerConfigKeys($match[2]);
-    editText($message_id, "☑️ مدیریت سرور ها: $cname", $keys);
+    editText($message_id, "☑️ پشتیبانییت سرور ها: $cname", $keys);
 }
 if ($data == 'addNewServer' and (($from_id == $admin || $userInfo['isAdmin'] == true))) {
     delMessage();
@@ -9194,7 +9195,7 @@ if (preg_match('/^editServerPanePassword(.*)/', $userInfo['step'], $match) and $
         sendMessage("اطلاعات ورود سرور با موفقیت عوض شد", $removeKeyboard);
     }
     $keys = getServerConfigKeys($rowId);
-    sendMessage('☑️ مدیریت سرور ها:', $keys);
+    sendMessage('☑️ پشتیبانییت سرور ها:', $keys);
     setUser();
 }
 if (preg_match('/^wizwizdeleteserver(\d+)/', $data, $match) and ($from_id == $admin || $userInfo['isAdmin'] == true)) {
@@ -9213,7 +9214,7 @@ if (preg_match('/^wizwizdeleteserver(\d+)/', $data, $match) and ($from_id == $ad
 
     $keys = getServerListKeys();
     if ($keys == null) editText($message_id, "موردی یافت نشد");
-    else editText($message_id, "☑️ مدیریت سرور ها:", $keys);
+    else editText($message_id, "☑️ پشتیبانییت سرور ها:", $keys);
 }
 if (preg_match('/^editServer(\D+)(\d+)/', $data, $match) && $text != $buttonValues['cancel'] && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     switch ($match[1]) {
@@ -9271,7 +9272,7 @@ if (preg_match('/^editServer(\D+)(\d+)/', $userInfo['step'], $match) && $text !=
     setUser();
 
     $keys = getServerConfigKeys($match[2]);
-    sendMessage("مدیریت سرور $cname", $keys);
+    sendMessage("پشتیبانییت سرور $cname", $keys);
     exit();
 }
 if (preg_match('/^editsServer(\D+)(\d+)/', $data, $match) && $text != $buttonValues['cancel'] && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
@@ -9315,7 +9316,7 @@ if (preg_match('/^editsServer(\D+)(\d+)/', $userInfo['step'], $match) && $text !
     setUser();
 
     $keys = getServerConfigKeys($match[2]);
-    sendMessage("مدیریت سرور $cname", $keys);
+    sendMessage("پشتیبانییت سرور $cname", $keys);
     exit();
 }
 if (preg_match('/^editServer(\D+)(\d+)/', $data, $match) && $text != $buttonValues['cancel'] && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
@@ -9361,10 +9362,10 @@ if (preg_match('/^editServer(\D+)(\d+)/', $userInfo['step'], $match) && $text !=
     setUser();
 
     $keys = getServerConfigKeys($match[2]);
-    sendMessage("مدیریت سرور $cname", $keys);
+    sendMessage("پشتیبانییت سرور $cname", $keys);
 }
 if ($data == "discount_codes" && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
-    editText($message_id, "مدیریت کد های تخفیف", getDiscountCodeKeys());
+    editText($message_id, "پشتیبانییت کد های تخفیف", getDiscountCodeKeys());
 }
 if ($data == "addDiscountCode" && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     delMessage();
@@ -9414,7 +9415,7 @@ if (preg_match('/^addDiscountCanUse(.*)/', $userInfo['step'], $match) && $text !
         $stmt->close();
         sendMessage("کد تخفیف جدید (<code>$hashId</code>) با موفقیت ساخته شد", $removeKeyboard, "HTML");
         setUser();
-        sendMessage("مدیریت کد های تخفیف", getDiscountCodeKeys());
+        sendMessage("پشتیبانییت کد های تخفیف", getDiscountCodeKeys());
     } else sendMessage("🔘|لطفا فقط عدد بفرستید");
 }
 if (preg_match('/^delDiscount(\d+)/', $data, $match) && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
@@ -9424,7 +9425,7 @@ if (preg_match('/^delDiscount(\d+)/', $data, $match) && ($from_id == $admin || $
     $stmt->close();
 
     alert("کد تخفیف مورد نظر با موفقیت حذف شد");
-    editText($message_id, "مدیریت کد های تخفیف", getDiscountCodeKeys());
+    editText($message_id, "پشتیبانییت کد های تخفیف", getDiscountCodeKeys());
 }
 if (preg_match('/^copyHash(.*)/', $data, $match) && ($from_id == $admin || $userInfo['isAdmin'] == true)) {
     sendMessage("<code>" . $match[1] . "</code>", null, "HTML");
@@ -9433,7 +9434,7 @@ if ($data == "managePanel" and (($from_id == $admin || $userInfo['isAdmin'] == t
 
     setUser();
     $msg = "
-👤 عزیزم به بخش مدیریت خوشومدی 
+👤 عزیزم به بخش پشتیبانییت خوشومدی 
 🤌 هرچی نیاز داشتی میتونی اینجا طبق نیازهات اضافه و تغییر بدی ، عزیزم جان اگه از فروش ربات درآمد داری از من حمایت کن تا پروژه همیشه آپدیت بمونه !
 
 🆔 @v2proxy
