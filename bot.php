@@ -4205,7 +4205,7 @@ if ($data == "usersNewTicket") {
         array_push($keys, $temp);
         editText($message_id, "💠لطفا واحد مورد نظر خود را انتخاب نمایید!", json_encode(['inline_keyboard' => $keys]));
     } else {
-        alert("ای وای، ببخشید الان نیستم");
+        alert("ببخشید الان نیستم");
     }
 }
 if ($data == 'dayPlanSettings' and ($from_id == $admin || $userInfo['isAdmin'] == true)) {
@@ -5819,7 +5819,7 @@ if ($userInfo['step'] == "showAccount" and $text != $buttonValues['cancel']) {
         }
     }
     if (!$found) {
-        sendMessage("ای وای ، اطلاعاتت اشتباهه 😔", $cancelKey);
+        sendMessage("اطلاعاتت اشتباهه 😔", $cancelKey);
     }
 }
 
