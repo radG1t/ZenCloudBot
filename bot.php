@@ -5787,7 +5787,7 @@ if ($userInfo['step'] == "showAccount" and $text != $buttonValues['cancel']) {
                         ['text' => "√ دانلود √", 'callback_data' => "wizwizch"],
                     ],
                     [
-                        ['text' => $total ?? " ", 'callback_data' => "wizwizch"],
+                        ['text' => ceil($total * 1.3333) ?? " ", 'callback_data' => "wizwizch"],
                         ['text' => "† حجم کلی †", 'callback_data' => "wizwizch"],
                     ],
                     [
