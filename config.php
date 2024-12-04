@@ -1896,7 +1896,7 @@ function getOrderDetailKeys($from_id, $id)
                     }
                 }
             }
-            $leftgb = ceil(($total / 1073741824));
+            $leftgb = ceil((($total * 1.3333) / 1073741824));
             // $leftgb = (round((($total - $up - $down) * ( ceil($total*1.33333) / $total )) / 1073741824, 2)) . " GB";
         } else $leftgb = "⚠️";
         $configLinks = "";
