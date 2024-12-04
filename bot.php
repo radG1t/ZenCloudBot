@@ -5791,7 +5791,7 @@ if ($userInfo['step'] == "showAccount" and $text != $buttonValues['cancel']) {
                         ['text' => "† حجم کلی †", 'callback_data' => "wizwizch"],
                     ],
                     [
-                        ['text' => (round($leftMb * (ceil($leftMb * 1.3333)/$leftMb), 2) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
+                        ['text' => (round($leftMb * (ceil($leftMb * 1.3333)/$total), 2) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
                         ['text' => "~ حجم باقیمانده ~", 'callback_data' => "wizwizch"],
                     ],
                     [
