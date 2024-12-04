@@ -1491,7 +1491,7 @@ function getUserOrderDetailKeys($id)
                 }
             }
         }
-        $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 50) . " GB";
+        $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 1.333) . " GB";
         $configLinks = "";
         foreach ($acc_link as $acc_link) {
             $configLinks .= $botState['configLinkState'] != "off" ? "\n <code>$acc_link</code>" : "";
@@ -1896,7 +1896,7 @@ function getOrderDetailKeys($from_id, $id)
                     }
                 }
             }
-            $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 1.333) . " GB";
+            $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 90) . " GB";
         } else $leftgb = "⚠️";
         $configLinks = "";
         foreach ($acc_link as $acc_link) {
