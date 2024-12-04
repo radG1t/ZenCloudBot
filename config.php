@@ -1491,7 +1491,7 @@ function getUserOrderDetailKeys($id)
                 }
             }
         }
-        ceil($leftgb * 1.333) = round(($total - $up - $down) / 1073741824, 2) . " GB";
+        $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 1.333) . " GB";
         $configLinks = "";
         foreach ($acc_link as $acc_link) {
             $configLinks .= $botState['configLinkState'] != "off" ? "\n <code>$acc_link</code>" : "";
@@ -1526,7 +1526,7 @@ function getUserOrderDetailKeys($id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1568,7 +1568,7 @@ function getUserOrderDetailKeys($id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1613,7 +1613,7 @@ function getUserOrderDetailKeys($id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1655,7 +1655,7 @@ function getUserOrderDetailKeys($id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1697,7 +1697,7 @@ function getUserOrderDetailKeys($id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1747,7 +1747,7 @@ function getUserOrderDetailKeys($id)
                     ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                 ],
                 [
-                    ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                    ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                     ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                 ],
                 [
@@ -1896,8 +1896,8 @@ function getOrderDetailKeys($from_id, $id)
                     }
                 }
             }
-            ceil($leftgb * 1.333) = round(($total - $up - $down) / 1073741824, 2) . " GB";
-        } else ceil($leftgb * 1.333) = "⚠️";
+            $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 1.333) . " GB";
+        } else $leftgb = "⚠️";
         $configLinks = "";
         foreach ($acc_link as $acc_link) {
             $configLinks .= ($botState['configLinkState'] != "off" ? "\n <code>$acc_link</code>" : "");
@@ -1920,7 +1920,7 @@ function getOrderDetailKeys($from_id, $id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1935,7 +1935,7 @@ function getOrderDetailKeys($from_id, $id)
                     $temp = array();
                     if ($price != 0 && $agentBought == true) {
                         if ($botState['renewAccountState'] == "on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id"];
-                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_idceil}_{($leftgb * 1).333}_" . $order['expire_date']];
+                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_" . $order['expire_date']];
                     }
                     if (count($temp) > 0) array_push($keyboard, $temp);
                 } else {
@@ -1953,7 +1953,7 @@ function getOrderDetailKeys($from_id, $id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -1970,7 +1970,7 @@ function getOrderDetailKeys($from_id, $id)
                     $temp = array();
                     if ($price != 0 || $agentBought == true) {
                         if ($botState['renewAccountState'] == "on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id"];
-                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_idceil}_{($leftgb * 1).333}_" . $order['expire_date']];
+                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_" . $order['expire_date']];
                     }
                     if (count($temp) > 0) array_push($keyboard, $temp);
                 }
@@ -1990,7 +1990,7 @@ function getOrderDetailKeys($from_id, $id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -2006,7 +2006,7 @@ function getOrderDetailKeys($from_id, $id)
                     $temp = array();
                     if ($price != 0 || $agentBought == true) {
                         if ($botState['renewAccountState'] == "on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id"];
-                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_idceil}_{($leftgb * 1).333}_" . $order['expire_date']];
+                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_" . $order['expire_date']];
                     }
                     if (count($temp) > 0) array_push($keyboard, $temp);
                 } elseif ($netType == "tcp" && $security == "xtls") {
@@ -2024,7 +2024,7 @@ function getOrderDetailKeys($from_id, $id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -2039,7 +2039,7 @@ function getOrderDetailKeys($from_id, $id)
                     $temp = array();
                     if ($price != 0 || $agentBought == true) {
                         if ($botState['renewAccountState'] == "on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id"];
-                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_idceil}_{($leftgb * 1).333}_" . $order['expire_date']];
+                        if ($botState['switchLocationState'] == "on") $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_" . $order['expire_date']];
                     }
                     if (count($temp) > 0) array_push($keyboard, $temp);
                 } else {
@@ -2057,7 +2057,7 @@ function getOrderDetailKeys($from_id, $id)
                             ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                         ],
                         [
-                            ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                            ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                             ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                         ],
                         [
@@ -2078,7 +2078,7 @@ function getOrderDetailKeys($from_id, $id)
                     $temp = array();
                     if ($price != 0 || $agentBought == true) {
                         if ($botState['renewAccountState'] == "on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id"];
-                        if ($botState['switchLocationState'] == "on" && $rahgozar != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_idceil}_{($leftgb * 1).333}_" . $order['expire_date']];
+                        if ($botState['switchLocationState'] == "on" && $rahgozar != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_" . $order['expire_date']];
                     }
                     if (count($temp) > 0) array_push($keyboard, $temp);
                 }
@@ -2098,7 +2098,7 @@ function getOrderDetailKeys($from_id, $id)
                     ['text' => $buttonValues['expire_date'], 'callback_data' => "wizwizch"],
                 ],
                 [
-                    ['text' => " ceil($leftgb * 1.333)", 'callback_data' => "wizwizch"],
+                    ['text' => " $leftgb", 'callback_data' => "wizwizch"],
                     ['text' => $buttonValues['volume_left'], 'callback_data' => "wizwizch"],
                 ],
                 [
@@ -2112,7 +2112,7 @@ function getOrderDetailKeys($from_id, $id)
             $temp = array();
             if ($price != 0 || $agentBought == true) {
                 if ($botState['renewAccountState'] == "on") $temp[] = ['text' => $buttonValues['renew_config'], 'callback_data' => "renewAccount$id"];
-                if ($botState['switchLocationState'] == "on" && $rahgozar != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_idceil}_{($leftgb * 1).333}_" . $order['expire_date']];
+                if ($botState['switchLocationState'] == "on" && $rahgozar != true) $temp[] = ['text' => $buttonValues['change_config_location'], 'callback_data' => "switchLocation{$id}_{$server_id}_{$leftgb}_" . $order['expire_date']];
             }
             if (count($temp) > 0) array_push($keyboard, $temp);
         }
@@ -2549,7 +2549,7 @@ function editInboundTraffic($server_id, $uuid, $volume, $days, $editType = null)
     }
 
     if ($volume != 0) {
-        ceil($leftGB * 1.333) = $total - $up - $down;
+        $leftGB = ceil(($total - $up - $down) * 1.333);
         $extend_volume = floor($volume * 1073741824);
         if ($editType == "renew") {
             $total = $extend_volume;
@@ -2558,7 +2558,7 @@ function editInboundTraffic($server_id, $uuid, $volume, $days, $editType = null)
             $volume = $extend_volume;
             if ($serverType == "sanaei" || $serverType == "alireza") resetClientTraffic($server_id, $email, $inbound_id);
             else resetClientTraffic($server_id, $email);
-        } else $ceiltotal = (($leftGB * 1).333 > 0) ? $total + $extend_volume : $extend_volume;
+        } else $total = ($leftGB > 0) ? $total + $extend_volume : $extend_volume;
     }
 
     $dataArr = array(
