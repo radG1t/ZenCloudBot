@@ -1683,7 +1683,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
-🔋حجم سرویس: $volume گیگ
+🔋حجم سرویس: ($volume * 1.35 ) گیگ
 ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
