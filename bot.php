@@ -1678,6 +1678,9 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
 
                     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
                     foreach ($vraylink as $vray_link) {
+                        
+                        $volume = ceil($volume * 1.3333);
+                        
                         $acc_text = "
         
 😍 سفارش جدید شما
@@ -2848,6 +2851,7 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
     define('IMAGE_WIDTH', 540);
     define('IMAGE_HEIGHT', 540);
     foreach ($vraylink as $vray_link) {
+        $volume = ceil($volume * 1.3333);
         $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -3231,6 +3235,7 @@ if (preg_match('/accCustom(.*)/', $data, $match) and $text != $buttonValues['can
     define('IMAGE_HEIGHT', 540);
 
     foreach ($vraylink as $vray_link) {
+        $volume = ceil($volume * 1.3333);
         $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -3523,6 +3528,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 
             $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             foreach ($vraylink as $vray_link) {
+                $volume = ceil($volume * 1.3333);
                 $acc_text = "
 💎 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -4037,6 +4043,7 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
 
             $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             foreach ($vraylink as $vray_link) {
+                $volume = ceil($volume * 1.3333);
                 $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -5484,6 +5491,7 @@ if (preg_match('/freeTrial(\d+)/', $data, $match)) {
     define('IMAGE_WIDTH', 540);
     define('IMAGE_HEIGHT', 540);
     foreach ($vraylink as $vray_link) {
+        $volume = ceil($volume * 1.3333);
         $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
