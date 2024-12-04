@@ -2852,7 +2852,7 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
-🔋حجم سرویس: $volume گیگ
+🔋حجم سرویس: ($volume * 1.35 ) گیگ
 ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
@@ -3235,7 +3235,7 @@ if (preg_match('/accCustom(.*)/', $data, $match) and $text != $buttonValues['can
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
-🔋حجم سرویس: $volume گیگ
+🔋حجم سرویس: ($volume * 1.35 ) گیگ
 ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
@@ -3527,7 +3527,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 💎 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
-🔋حجم سرویس: $volume گیگ
+🔋حجم سرویس: ($volume * 1.35 ) گیگ
 ⏰ مدت سرویس: $days روز⁮⁮ ⁮⁮
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
@@ -4041,7 +4041,7 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
-🔋حجم سرویس: $volume گیگ
+🔋حجم سرویس: ($volume * 1.35 ) گیگ
 ⏰ مدت سرویس: $days روز
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
@@ -5488,7 +5488,7 @@ if (preg_match('/freeTrial(\d+)/', $data, $match)) {
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
 🔮 نام سرویس: $remark
-🔋حجم سرویس: $volume گیگ
+🔋حجم سرویس: ($volume * 1.35 ) گیگ
 ⏰ مدت سرویس: $days روز
 " . ($botState['configLinkState'] != "off" ? "
 💝 config : <code>$vray_link</code>" : "");
