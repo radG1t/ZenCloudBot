@@ -5779,11 +5779,11 @@ if ($userInfo['step'] == "showAccount" and $text != $buttonValues['cancel']) {
                         ['text' => "« نام اکانت »", 'callback_data' => "wizwizch"],
                     ],
                     [
-                        ['text' => (($upload * 1.3) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
+                        ['text' => (($upload * 1.3333) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
                         ['text' => "√ آپلود √", 'callback_data' => "wizwizch"],
                     ],
                     [
-                        ['text' => (($download * 1.3) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
+                        ['text' => (($download * 1.3333) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
                         ['text' => "√ دانلود √", 'callback_data' => "wizwizch"],
                     ],
                     [
@@ -5791,7 +5791,7 @@ if ($userInfo['step'] == "showAccount" and $text != $buttonValues['cancel']) {
                         ['text' => "† حجم کلی †", 'callback_data' => "wizwizch"],
                     ],
                     [
-                        ['text' => (round($leftMb * (ceil($leftMb * 1.3333)/$total), 2) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
+                        ['text' => (round($leftMb * (ceil($total * 1.3333)/$total), 2) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
                         ['text' => "~ حجم باقیمانده ~", 'callback_data' => "wizwizch"],
                     ],
                     [
