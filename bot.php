@@ -1679,7 +1679,7 @@ if (preg_match('/havePaiedWeSwap(.*)/', $data, $match)) {
                     $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
                     foreach ($vraylink as $vray_link) {
                         
-                        $volume = ceil($volume * 1.3333);
+                        $volume = ceil($volume * 1.176);
                         
                         $acc_text = "
         
@@ -2851,7 +2851,7 @@ if (preg_match('/payCustomWithWallet(.*)/', $data, $match)) {
     define('IMAGE_WIDTH', 540);
     define('IMAGE_HEIGHT', 540);
     foreach ($vraylink as $vray_link) {
-        $volume = ceil($volume * 1.3333);
+        $volume = ceil($volume * 1.176);
         $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -3235,7 +3235,7 @@ if (preg_match('/accCustom(.*)/', $data, $match) and $text != $buttonValues['can
     define('IMAGE_HEIGHT', 540);
 
     foreach ($vraylink as $vray_link) {
-        $volume = ceil($volume * 1.3333);
+        $volume = ceil($volume * 1.176);
         $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -3528,7 +3528,7 @@ if (preg_match('/payWithWallet(.*)/', $data, $match)) {
 
             $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             foreach ($vraylink as $vray_link) {
-                $volume = ceil($volume * 1.3333);
+                $volume = ceil($volume * 1.176);
                 $acc_text = "
 💎 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -4043,7 +4043,7 @@ if (preg_match('/accept(.*)/', $data, $match) and $text != $buttonValues['cancel
 
             $vraylink = getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netType, $inbound_id, $rahgozar, $customPath, $customPort, $customSni);
             foreach ($vraylink as $vray_link) {
-                $volume = ceil($volume * 1.3333);
+                $volume = ceil($volume * 1.176);
                 $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -5491,7 +5491,7 @@ if (preg_match('/freeTrial(\d+)/', $data, $match)) {
     define('IMAGE_WIDTH', 540);
     define('IMAGE_HEIGHT', 540);
     foreach ($vraylink as $vray_link) {
-        $volume = ceil($volume * 1.3333);
+        $volume = ceil($volume * 1.176);
         $acc_text = "
 😍 سفارش جدید شما
 📡 پروتکل: $protocol
@@ -5779,19 +5779,19 @@ if ($userInfo['step'] == "showAccount" and $text != $buttonValues['cancel']) {
                         ['text' => "« نام اکانت »", 'callback_data' => "wizwizch"],
                     ],
                     // [
-                    //     ['text' => (($upload * 1.3333) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
+                    //     ['text' => (($upload * 1.176) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
                     //     ['text' => "√ آپلود √", 'callback_data' => "wizwizch"],
                     // ],
                     // [
-                    //     ['text' => (($download * 1.3333) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
+                    //     ['text' => (($download * 1.176) ?? " ") . " مگابایت", 'callback_data' => "wizwizch"],
                     //     ['text' => "√ دانلود √", 'callback_data' => "wizwizch"],
                     // ],
                     [
-                        ['text' => (ceil($total * 1.3333) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
+                        ['text' => (ceil($total * 1.176) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
                         ['text' => "† حجم کلی †", 'callback_data' => "wizwizch"],
                     ],
                     [
-                        ['text' => (round($leftMb * (ceil($total * 1.3333)/$total), 2) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
+                        ['text' => (round($leftMb * (ceil($total * 1.176)/$total), 2) ?? " ") . " گیگ", 'callback_data' => "wizwizch"],
                         ['text' => "~ حجم باقیمانده ~", 'callback_data' => "wizwizch"],
                     ],
                     [
