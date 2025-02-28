@@ -1491,7 +1491,7 @@ function getUserOrderDetailKeys($id)
                 }
             }
         }
-        $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 1.333) . " GB";
+        $leftgb = ceil(round(($total - $up - $down) / 1073741824, 2) * 1.176) . " GB";
         $configLinks = "";
         foreach ($acc_link as $acc_link) {
             $configLinks .= $botState['configLinkState'] != "off" ? "\n <code>$acc_link</code>" : "";
@@ -1896,8 +1896,8 @@ function getOrderDetailKeys($from_id, $id)
                     }
                 }
             }
-            // $leftgb = ( ceil(($total * 1.3333) / 1073741824) / ($total / 1073741824) );
-            $leftgb = (round(((($total - $up - $down) / 1073741824) * ( ceil(($total * 1.3333) / 1073741824) / ($total / 1073741824) )) , 2)) . " GB";
+            // $leftgb = ( ceil(($total * 1.176) / 1073741824) / ($total / 1073741824) );
+            $leftgb = (round(((($total - $up - $down) / 1073741824) * ( ceil(($total * 1.176) / 1073741824) / ($total / 1073741824) )) , 2)) . " GB";
         } else $leftgb = "⚠️";
         $configLinks = "";
         foreach ($acc_link as $acc_link) {
@@ -2550,7 +2550,7 @@ function editInboundTraffic($server_id, $uuid, $volume, $days, $editType = null)
     }
 
     if ($volume != 0) {
-        $leftGB = ceil(($total - $up - $down) * 1.333);
+        $leftGB = ceil(($total - $up - $down) * 1.176);
         $extend_volume = floor($volume * 1073741824);
         if ($editType == "renew") {
             $total = $extend_volume;
